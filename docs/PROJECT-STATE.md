@@ -6,15 +6,20 @@ Publish a minimal public homepage and privacy policy for the private Jarvis Goog
 
 ## Current state
 
-- Static site created locally.
-- Custom hostname selected: `jarvis.wardiel.com`.
-- Search indexing discouraged through page-level `noindex` directives and `robots.txt`.
-- No analytics or tracking included.
+- Public repository created at `cluelessbk/jarvis-site`; GitHub Pages build is successful.
+- `jarvis.wardiel.com` points to GitHub Pages through a DNS-only Cloudflare CNAME.
+- Homepage and privacy policy are publicly available over HTTP; GitHub certificate issuance is pending before HTTPS enforcement can be enabled.
+- Search indexing is discouraged through page-level `noindex` directives and `robots.txt`.
+- No analytics, tracking, personal details, or project information is included.
+- Google OAuth Branding uses the homepage/privacy URLs and lists `wardiel.com` as an authorized domain.
+- OAuth publishing status is `In production`.
+- A fresh production-mode Gmail token was issued with Gmail send, Gmail modify, and Pub/Sub scopes; the Gmail profile check and watch renewal succeeded.
 
 ## Next action
 
-Create the separate GitHub repository, enable Pages, add the Cloudflare DNS record, verify HTTPS, then add the URLs and authorized domain to the Google OAuth configuration.
+Wait for GitHub's certificate issuance, enable HTTPS enforcement, and verify both public pages over HTTPS.
 
 ## Blockers
 
-- Cloudflare and Google Console changes may require an existing browser login or manual account confirmation.
+- GitHub is still provisioning the custom-domain TLS certificate.
+- Google reports that the sensitive/restricted scopes require verification. This does not prevent the single authorized account from using the app in Production, but it retains the unverified-app warning and 100-user lifetime cap.
